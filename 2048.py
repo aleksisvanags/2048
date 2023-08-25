@@ -39,7 +39,7 @@ grid = [[0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]]
 
-def drawSquares(win):
+def DrawSquares(win):
     win.fill(BLACK)
 
     for r in range(ROWS):
@@ -215,7 +215,7 @@ def main():
                 elif event.key == pygame.K_r:
                     main()
                     
-        drawSquares(WIN)
+        DrawSquares(WIN)
 
         if tried == [1, 1, 1, 1]:
             score = 0
