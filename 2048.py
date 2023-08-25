@@ -39,47 +39,46 @@ grid = [[0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]]
 
-class Board:
-    def draw_sqaures(self, win):
-        win.fill(BLACK)
+def drawSquares(win):
+    win.fill(BLACK)
 
-        for r in range(ROWS):
-            for c in range(COLS):
-                if grid[r][c] == 0:
-                    COLOUR = WHITE
-                elif grid[r][c] == 2:
-                    COLOUR = COLOUR_2
-                elif grid[r][c] == 4:
-                    COLOUR = COLOUR_4
-                elif grid[r][c] == 8:
-                    COLOUR = COLOUR_8
-                elif grid[r][c] == 16:
-                    COLOUR = COLOUR_16
-                elif grid[r][c] == 32:
-                    COLOUR = COLOUR_32
-                elif grid[r][c] == 64:
-                    COLOUR = COLOUR_64
-                elif grid[r][c] == 128:
-                    COLOUR = COLOUR_128
-                elif grid[r][c] == 256:
-                    COLOUR = COLOUR_256
-                elif grid[r][c] == 512:
-                    COLOUR = COLOUR_512
-                elif grid[r][c] == 1024:
-                    COLOUR = COLOUR_1024
-                else:
-                    COLOUR = COLOUR_2048
+    for r in range(ROWS):
+        for c in range(COLS):
+            if grid[r][c] == 0:
+                COLOUR = WHITE
+            elif grid[r][c] == 2:
+                COLOUR = COLOUR_2
+            elif grid[r][c] == 4:
+                COLOUR = COLOUR_4
+            elif grid[r][c] == 8:
+                COLOUR = COLOUR_8
+            elif grid[r][c] == 16:
+                COLOUR = COLOUR_16
+            elif grid[r][c] == 32:
+                COLOUR = COLOUR_32
+            elif grid[r][c] == 64:
+                COLOUR = COLOUR_64
+            elif grid[r][c] == 128:
+                COLOUR = COLOUR_128
+            elif grid[r][c] == 256:
+                COLOUR = COLOUR_256
+            elif grid[r][c] == 512:
+                COLOUR = COLOUR_512
+            elif grid[r][c] == 1024:
+                COLOUR = COLOUR_1024
+            else:
+                COLOUR = COLOUR_2048
 
-                pygame.draw.rect(win, COLOUR, (r * SQUARE_SIZE, c * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+            pygame.draw.rect(win, COLOUR, (r * SQUARE_SIZE, c * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
-                text = font.render(str(grid[r][c]), True, WHITE, COLOUR)
-                textRect = text.get_rect()
-                textRect.center = ((r * SQUARE_SIZE) + (SQUARE_SIZE // 2), (c * SQUARE_SIZE) + (SQUARE_SIZE // 2))
+            text = font.render(str(grid[r][c]), True, WHITE, COLOUR)
+            textRect = text.get_rect()
+            textRect.center = ((r * SQUARE_SIZE) + (SQUARE_SIZE // 2), (c * SQUARE_SIZE) + (SQUARE_SIZE // 2))
 
-                pygame.draw.rect(win, OFFWHITE, ((r * SQUARE_SIZE) - 1, 0, 2, HEIGHT))
-                pygame.draw.rect(win, OFFWHITE, (0, (c * SQUARE_SIZE) - 1, WIDTH, 2))
+            pygame.draw.rect(win, OFFWHITE, ((r * SQUARE_SIZE) - 1, 0, 2, HEIGHT))
+            pygame.draw.rect(win, OFFWHITE, (0, (c * SQUARE_SIZE) - 1, WIDTH, 2))
 
-                win.blit(text, textRect)
+            win.blit(text, textRect)
 
 def ClearGrid():
     for r in range(ROWS):
@@ -192,7 +191,6 @@ def Turn(direction, tried):
 def main():
     run = True
     clock = pygame.time.Clock()
-    board = Board()
     grid = ClearGrid()
     tried = [0, 0, 0, 0]
 
@@ -216,8 +214,8 @@ def main():
                     tried = Turn("d", tried)
                 elif event.key == pygame.K_r:
                     main()
-
-        board.draw_sqaures(WIN)
+                    
+        drawSquares(WIN)
 
         if tried == [1, 1, 1, 1]:
             score = 0
