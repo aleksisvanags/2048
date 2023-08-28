@@ -204,13 +204,13 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w or event.key == pygame.K_UP:
+                if event.key in (pygame.K_w, pygame.K_UP):
                     tried = Turn("w", tried)
-                elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                elif event.key in (pygame.K_a, pygame.K_LEFT):
                     tried = Turn("a", tried)
-                elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                elif event.key in (pygame.K_s, pygame.K_DOWN):
                     tried = Turn("s", tried)
-                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                elif event.key in (pygame.K_d, pygame.K_RIGHT):
                     tried = Turn("d", tried)
                 elif event.key == pygame.K_r:
                     main()
