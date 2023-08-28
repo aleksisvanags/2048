@@ -71,8 +71,8 @@ def DrawSquares(win):
             else:
                 COLOUR = COLOUR_2048
 
-            pygame.draw.rect(win, COLOUR, (r * SQUARE_SIZE, c * SQUARE_SIZE, SQUARE_SIZE,
-                                           SQUARE_SIZE))
+            pygame.draw.rect(win, COLOUR, (r * SQUARE_SIZE, c * SQUARE_SIZE,
+                                           SQUARE_SIZE, SQUARE_SIZE))
 
             text = font.render(str(grid[r][c]), True, WHITE, COLOUR)
             textRect = text.get_rect()
