@@ -39,6 +39,7 @@ grid = [[0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]]
 
+
 def DrawSquares(win):
     win.fill(BLACK)
 
@@ -80,12 +81,14 @@ def DrawSquares(win):
 
             win.blit(text, textRect)
 
+
 def ClearGrid():
     for r in range(ROWS):
         for c in range(COLS):
             grid[r][c] = 0
 
     return grid
+
 
 def RandomCell():
     rRow = r(0, ROWS - 1)
@@ -103,6 +106,7 @@ def RandomCell():
                 grid[rRow][rCol] = 2
     except RecursionError:
         pass
+
 
 def Compress(direction):
     if direction == "a":
@@ -130,6 +134,7 @@ def Compress(direction):
                     grid[r][c+1] = grid[r][c]
                     grid[r][c] = 0
 
+
 def Combine(direction):
     if direction == "a":
         for r in range(1, ROWS):
@@ -155,6 +160,7 @@ def Combine(direction):
                 if grid[r][c] != 0 and grid[r][c] == grid[r][c+1]:
                     grid[r][c+1] *= 2
                     grid[r][c] = 0
+
 
 def Turn(direction, tried):
     tempGrid = [[0, 0, 0, 0],
@@ -187,6 +193,7 @@ def Turn(direction, tried):
         RandomCell()
 
     return tried
+
 
 def main():
     run = True
