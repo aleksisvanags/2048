@@ -149,7 +149,7 @@ def Compress(direction):
 
 def Combine(direction):
     """
-    This funtion combines adjacent tiles 
+    This funtion combines adjacent tiles
     (with respect to the direction of compression) of the same value.
     """
     if direction == "a":
