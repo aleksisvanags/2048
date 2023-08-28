@@ -40,6 +40,7 @@ grid = [[0, 0, 0, 0],
         [0, 0, 0, 0]]
 
 
+""" This funtion draws the tiles and grid onto the display surface. """
 def DrawSquares(win):
     win.fill(BLACK)
 
@@ -82,6 +83,7 @@ def DrawSquares(win):
             win.blit(text, textRect)
 
 
+""" This function resets the grid to its default state. """
 def ClearGrid():
     for r in range(ROWS):
         for c in range(COLS):
@@ -90,6 +92,7 @@ def ClearGrid():
     return grid
 
 
+""" This function places a random '2' or '4' tile onto the grid in a ratio of 9:1. """
 def RandomCell():
     rRow = r(0, ROWS - 1)
     rCol = r(0, COLS - 1)
@@ -108,6 +111,7 @@ def RandomCell():
         pass
 
 
+""" This function compacts the tiles on the grid to be as close as possible before merging. """
 def Compress(direction):
     if direction == "a":
         for r in range(ROWS - 1, 0, -1):
@@ -135,6 +139,7 @@ def Compress(direction):
                     grid[r][c] = 0
 
 
+""" This funtion combines adjacent tiles (with respect to the direction of compression) of the same value. """
 def Combine(direction):
     if direction == "a":
         for r in range(1, ROWS):
@@ -162,6 +167,7 @@ def Combine(direction):
                     grid[r][c] = 0
 
 
+""" This funtion completes the necessary actions to complete a full turn of the game. """
 def Turn(direction, tried):
     tempGrid = [[0, 0, 0, 0],
                 [0, 0, 0, 0],
@@ -195,6 +201,7 @@ def Turn(direction, tried):
     return tried
 
 
+""" This funtion initialises variables and contains the main loop for the program. """
 def main():
     run = True
     clock = pygame.time.Clock()
