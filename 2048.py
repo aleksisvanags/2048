@@ -40,8 +40,8 @@ grid = [[0, 0, 0, 0],
         [0, 0, 0, 0]]
 
 
-""" This funtion draws the tiles and grid onto the display surface. """
 def DrawSquares(win):
+    """ This funtion draws the tiles and grid onto the display surface. """
     win.fill(BLACK)
 
     for r in range(ROWS):
@@ -83,8 +83,8 @@ def DrawSquares(win):
             win.blit(text, textRect)
 
 
-""" This function resets the grid to its default state. """
 def ClearGrid():
+    """ This function resets the grid to its default state. """
     for r in range(ROWS):
         for c in range(COLS):
             grid[r][c] = 0
@@ -92,8 +92,8 @@ def ClearGrid():
     return grid
 
 
-""" This function places a random '2' or '4' tile onto the grid in a ratio of 9:1. """
 def RandomCell():
+    """ This function places a random '2' or '4' tile onto the grid in a ratio of 9:1. """
     rRow = r(0, ROWS - 1)
     rCol = r(0, COLS - 1)
 
@@ -111,8 +111,8 @@ def RandomCell():
         pass
 
 
-""" This function compacts the tiles on the grid to be as close as possible before merging. """
 def Compress(direction):
+    """ This function compacts the tiles on the grid to be as close as possible before merging. """
     if direction == "a":
         for r in range(ROWS - 1, 0, -1):
             for c in range(0, COLS):
@@ -139,8 +139,8 @@ def Compress(direction):
                     grid[r][c] = 0
 
 
-""" This funtion combines adjacent tiles (with respect to the direction of compression) of the same value. """
 def Combine(direction):
+    """ This funtion combines adjacent tiles (with respect to the direction of compression) of the same value. """
     if direction == "a":
         for r in range(1, ROWS):
             for c in range(0, COLS):
@@ -167,8 +167,8 @@ def Combine(direction):
                     grid[r][c] = 0
 
 
-""" This funtion completes the necessary actions to complete a full turn of the game. """
 def Turn(direction, tried):
+    """ This funtion completes the necessary actions to complete a full turn of the game. """
     tempGrid = [[0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
@@ -201,8 +201,8 @@ def Turn(direction, tried):
     return tried
 
 
-""" This funtion initialises variables and contains the main loop for the program. """
 def main():
+    """ This funtion initialises variables and contains the main loop for the program. """
     run = True
     clock = pygame.time.Clock()
     grid = ClearGrid()
