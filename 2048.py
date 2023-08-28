@@ -90,13 +90,13 @@ def ClearGrid():
 def RandomCell():
     rRow = r(0, ROWS - 1)
     rCol = r(0, COLS - 1)
-    
+
     try:
         if grid[rRow][rCol] != 0:
             RandomCell()
         else:
             rInt = r(0, 9)
-        
+
             if rInt == 0:
                 grid[rRow][rCol] = 4
             else:
@@ -161,7 +161,7 @@ def Turn(direction, tried):
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0]]
-    
+
     for r in range(ROWS):
         for c in range(COLS):
             tempGrid[r][c] = grid[r][c]
@@ -183,7 +183,7 @@ def Turn(direction, tried):
             tried[3] = 1
     else:
         tried = [0, 0, 0, 0]
-        
+
         RandomCell()
 
     return tried
@@ -199,7 +199,7 @@ def main():
 
     while run:
         clock.tick(FPS)
-        
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -214,7 +214,7 @@ def main():
                     tried = Turn("d", tried)
                 elif event.key == pygame.K_r:
                     main()
-                    
+
         DrawSquares(WIN)
 
         if tried == [1, 1, 1, 1]:
@@ -240,7 +240,7 @@ def main():
             gameOverScreenFade.blit(scoreText, scoreTextRect)
             gameOverScreenFade.blit(resetText, resetTextRect)
             WIN.blit(gameOverScreenFade, (0, 0))
-        
+
         pygame.display.update()
 
     pygame.quit()
